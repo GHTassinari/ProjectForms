@@ -1,0 +1,239 @@
+* {
+  /* This is used to do a light reset of the css */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+input,
+select,
+textarea {
+  /* This is used as a guarantee that the font will work at all those situations */
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: #e5e5e5;
+}
+
+body::before {
+  content: "";
+  width: 100%;
+  height: 368px;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #121214;
+}
+
+.page {
+  width: 736px;
+  margin: 0 auto;
+}
+
+header {
+  width: 319px;
+
+  margin-top: 74px;
+}
+
+header h1 {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700; /* A font weight of 700 is equivalent to bold */
+  font-size: 36px;
+  line-height: 42px;
+  color: white;
+
+  margin-bottom: 24px;
+}
+
+header p {
+  color: #42d3ff;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+form {
+  margin-top: 38px;
+  background: #fafafc;
+
+  min-height: 300px;
+  border-radius: 8px 8px 0 0;
+
+  padding: 64px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+fieldset {
+  border: none;
+
+}
+.fieldset-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+fieldset legend {
+  font-family: "Archivo", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600; /* 600 Is equivalent to semibold */
+  line-height: 34px;
+
+  width: 100%;
+  border-bottom: 1px solid #e6e6f0;
+
+  padding-bottom: 16px;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper label,
+.checkbox-wrapper label {
+  color: #4e4958;
+  font-size: 14px;
+  line-height: 24px;
+
+  margin-bottom: 8px;
+}
+
+.input-wrapper label span {
+  margin-left: 12px;
+
+  color: #706d77;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.input-wrapper label span:hover {
+  color: #b2adbd;
+}
+
+.input-wrapper input,
+.input-wrapper textarea,
+.input-wrapper select{
+  border-radius: 8px;
+  border: 1px solid #e6e6f0;
+
+  background: #fafafc;
+
+  height: 56px;
+
+  padding: 0 24px;
+
+  font-size: 16px;
+  line-height: 26px;
+  color: #706d77;
+}
+
+.input-wrapper textarea{
+  padding: 0;
+  height: 168px;
+}
+
+.input-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  /* Importing the select arrow as a background-img in CSS */
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1_54)'%3E%3Cpath d='M8 10L12 14L16 10' stroke='%239C98A6' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1_54'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  background-position: right 24px top 50%; /* 50% means that it will be at the center, and right px means that it will have a distance of 24px at the right */
+}
+
+.col-3 {
+  display: flex;
+  gap: 20px;
+}
+
+.col-3 > div:nth-child(1) { 
+  /* the > means that the first layer of divs after the .col-3 (and only those) will be selected, and the div:nth-child(1) 
+  means that the first child of .col-3, specifically, will be the one selected*/
+  width: 100%;
+}
+
+.checkbox-wrapper {
+  position: relative;
+}
+
+.checkbox-wrapper label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 16px
+}
+
+.checkbox-wrapper input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  opacity: 0;
+}
+
+.checkbox-wrapper label::before { /* It's using a pseudo-element to create a style of an element that isn't part of the actual HTML */
+  /* This one is being used to style the pseudo-elemnt that appears before the content of a <label>, within an element that has checkbox-wrapper */
+  /* So, it is being used, in this case, to create custom styling for checkboxes */
+  content: '';
+  border: 1px solid #E6E6F0;
+  width: 24px;
+  height: 24px;
+  display: block;
+  border-radius: 8px;
+}
+
+.checkbox-wrapper input:checked + label::before { /* When the input is checked, he will go to the .checkbox-wrapper label::before and apply a background */
+
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_2029_23)'%3E%3Cpath d='M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z' fill='%2342D3FF'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_2029_23'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+
+} 
+
+.checkbox-wrapper input:focus + label::before {
+  outline: 2px solid black;
+}
+
+footer {
+  background: #F0F0F4;
+
+  height: 136px;
+  
+  display: flex;
+  flex-direction: column;
+
+  padding: 40px 64px;
+  margin-bottom: 100px;
+
+  border-top: 1px solid #d6d6d6;
+  border-radius: 0 0 8px 8px;
+}
+
+footer .button {
+  height: 56px;
+
+  border-radius: 8px;
+  background: #04D361;
+  border: 0;
+
+  color: #FFF;
+  font-family: 'Archivo';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+footer .button:hover {
+  background: #049e49;
+}
+
+input:invalid {
+  border: 1px solid #FF1010;
+}
